@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--space);
+}
+
+.header h1 {
+  margin: 0 0 16px;
+  font-size: 1.6rem;
+}
+
+.banner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--error-bg);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.banner p {
+  margin: 0;
+}
+
+.icon-button,
+.text-button,
+.primary-button,
+.filter-button,
+.ghost-button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.composer-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.composer input,
+.todo-edit {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.composer input.is-invalid,
+.todo-edit.is-invalid {
+  border-color: var(--danger);
+}
+
+.field-error {
+  color: var(--danger);
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+}
+
+.primary-button {
+  background: var(--accent);
+  color: var(--accent-text);
+  border: 0;
+  border-radius: var(--radius);
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.filter-button {
+  flex: 1;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.filter-button.is-selected {
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: min(70vh, 720px);
+  overflow: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.todo-item:last-child {
+  border-bottom: 0;
+}
+
+.todo-item input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+}
+
+.todo-title {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  padding: 8px 4px;
+  min-height: 44px;
+  cursor: text;
+  overflow-wrap: anywhere;
+}
+
+.todo-title.is-done {
+  text-decoration: line-through;
+  color: var(--done);
+}
+
+.delete-button,
+.icon-button {
+  border: 0;
+  background: transparent;
+  color: var(--danger);
+  cursor: pointer;
+}
+
+.empty {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+.empty h2 {
+  margin: 8px 0 4px;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.empty p {
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 479px) {
+  .composer {
+    flex-direction: column;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
+}
